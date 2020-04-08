@@ -25,6 +25,7 @@
 		BFA3628C243E1717002FA200 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA36283243E1717002FA200 /* City.swift */; };
 		BFA3628E243E1C07002FA200 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3628D243E1C07002FA200 /* ViewModel.swift */; };
 		BFA36291243E239C002FA200 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = BFA36290243E239C002FA200 /* response.json */; };
+		BFA36293243E296B002FA200 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA36292243E296B002FA200 /* Provider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		BFA36283243E1717002FA200 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		BFA3628D243E1C07002FA200 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BFA36290243E239C002FA200 /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
+		BFA36292243E296B002FA200 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				BFA36258243E167C002FA200 /* AppDelegate.swift */,
 				BFA3625A243E167C002FA200 /* SceneDelegate.swift */,
 				BFA3625C243E167C002FA200 /* ContentView.swift */,
+				BFA36292243E296B002FA200 /* Provider.swift */,
 				BFA3628D243E1C07002FA200 /* ViewModel.swift */,
 				BFA3625E243E167D002FA200 /* Assets.xcassets */,
 				BFA36263243E167D002FA200 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			files = (
 				BFA36286243E1717002FA200 /* Main.swift in Sources */,
 				BFA36288243E1717002FA200 /* Forecast.swift in Sources */,
+				BFA36293243E296B002FA200 /* Provider.swift in Sources */,
 				BFA3628C243E1717002FA200 /* City.swift in Sources */,
 				BFA36285243E1717002FA200 /* Sys.swift in Sources */,
 				BFA36259243E167C002FA200 /* AppDelegate.swift in Sources */,

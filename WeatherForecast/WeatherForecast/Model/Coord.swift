@@ -7,6 +7,8 @@
 //
 
 struct Coord: Codable {
+    static let zero = Coord(lat: 0.0, lon: 0.0)
+    
 	let lat: Double
 	let lon: Double
 }

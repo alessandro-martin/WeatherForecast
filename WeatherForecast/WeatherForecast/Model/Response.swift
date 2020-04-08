@@ -7,6 +7,14 @@
 //
 
 struct Response: Codable {
+    static let empty = Response(
+        cod: "",
+        message: 0.0,
+        cnt: 0,
+        forecasts: [],
+        city: .empty
+    )
+    
 	let cod: String
 	let message: Double
 	let cnt: Int

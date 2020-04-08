@@ -13,16 +13,17 @@ final class ViewModel: ObservableObject {
     @Published private(set) var forecasts: [Forecast] = []
     @Published private(set) var cityName: String = "Loading"
     
+    private let weatherProvider: AnyPublisher<Response, Never>
     private var cancellable: AnyCancellable?
     
+    init(weatherProvider: AnyPublisher<Response, Never> = Provider.weather(city: "London")) {
+        self.weatherProvider = weatherProvider
+    }
+    
     func setUp() {
-        let url = URL(string: "https://samples.openweathermap.org/data/2.5/forecast?q=London,us&appid=b6907d289e10d714a6e88b30761fae22")!
-        cancellable = URLSession.shared
-            .dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: Response.self, decoder: JSONDecoder())
+        cancellable = weatherProvider
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in }) { [self] response in
+            .sink { [self] response in
                 self.forecasts = response.forecasts
                 self.cityName = response.city.name
         }

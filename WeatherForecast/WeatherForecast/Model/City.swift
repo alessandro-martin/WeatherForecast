@@ -7,6 +7,13 @@
 //
 
 struct City: Codable {
+    static let empty = City(
+        id: 0,
+        name: "",
+        coord: .zero,
+        country: ""
+    )
+    
 	let id: Int
 	let name: String
 	let coord: Coord
