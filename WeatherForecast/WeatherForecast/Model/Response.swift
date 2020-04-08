@@ -10,7 +10,7 @@ struct Response: Codable {
 	let cod: String?
 	let message: Double?
 	let cnt: Int?
-	let list: [List]?
+	let forecasts: [Forecast]?
 	let city: City?
 
 	enum CodingKeys: String, CodingKey {
@@ -18,7 +18,7 @@ struct Response: Codable {
 		case cod = "cod"
 		case message = "message"
 		case cnt = "cnt"
-		case list = "list"
+		case forecasts = "list"
 		case city = "city"
 	}
 
@@ -27,12 +27,8 @@ struct Response: Codable {
 		cod = try values.decodeIfPresent(String.self, forKey: .cod)
 		message = try values.decodeIfPresent(Double.self, forKey: .message)
 		cnt = try values.decodeIfPresent(Int.self, forKey: .cnt)
-		list = try values.decodeIfPresent([List].self, forKey: .list)
+		forecasts = try values.decodeIfPresent([Forecast].self, forKey: .forecasts)
 		city = try values.decodeIfPresent(City.self, forKey: .city)
 	}
 
-}
-
-extension Response: CustomStringConvertible {
-    var description: String { "\(cod as Any) \(message as Any) \(cnt as Any) \(list as Any) \(city as Any)" }
 }

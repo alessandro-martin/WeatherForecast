@@ -18,9 +18,12 @@ struct ContentView: View {
     }
     
     var body: some View {
-        Text(viewModel.response)
-            .onAppear {
-                self.viewModel.setUp()
+        NavigationView {
+            List(viewModel.forecasts) { forecast in
+                Text(forecast.dt_txt ?? "")
+            }
+            .onAppear(perform: self.viewModel.setUp)
+            .navigationBarTitle(viewModel.cityName)
         }
     }
 }

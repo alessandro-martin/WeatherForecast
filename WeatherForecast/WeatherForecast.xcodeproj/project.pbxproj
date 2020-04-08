@@ -18,7 +18,7 @@
 		BFA36285243E1717002FA200 /* Sys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3627C243E1717002FA200 /* Sys.swift */; };
 		BFA36286243E1717002FA200 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3627D243E1717002FA200 /* Main.swift */; };
 		BFA36287243E1717002FA200 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3627E243E1717002FA200 /* Response.swift */; };
-		BFA36288243E1717002FA200 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3627F243E1717002FA200 /* List.swift */; };
+		BFA36288243E1717002FA200 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3627F243E1717002FA200 /* Forecast.swift */; };
 		BFA36289243E1717002FA200 /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA36280243E1717002FA200 /* Clouds.swift */; };
 		BFA3628A243E1717002FA200 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA36281243E1717002FA200 /* Weather.swift */; };
 		BFA3628B243E1717002FA200 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA36282243E1717002FA200 /* Wind.swift */; };
@@ -52,7 +52,7 @@
 		BFA3627C243E1717002FA200 /* Sys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sys.swift; sourceTree = "<group>"; };
 		BFA3627D243E1717002FA200 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		BFA3627E243E1717002FA200 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		BFA3627F243E1717002FA200 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		BFA3627F243E1717002FA200 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		BFA36280243E1717002FA200 /* Clouds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
 		BFA36281243E1717002FA200 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		BFA36282243E1717002FA200 /* Wind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 				BFA36283243E1717002FA200 /* City.swift */,
 				BFA36280243E1717002FA200 /* Clouds.swift */,
 				BFA3627B243E1717002FA200 /* Coord.swift */,
-				BFA3627F243E1717002FA200 /* List.swift */,
+				BFA3627F243E1717002FA200 /* Forecast.swift */,
 				BFA3627D243E1717002FA200 /* Main.swift */,
 				BFA3627E243E1717002FA200 /* Response.swift */,
 				BFA3627C243E1717002FA200 /* Sys.swift */,
@@ -247,7 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA36286243E1717002FA200 /* Main.swift in Sources */,
-				BFA36288243E1717002FA200 /* List.swift in Sources */,
+				BFA36288243E1717002FA200 /* Forecast.swift in Sources */,
 				BFA3628C243E1717002FA200 /* City.swift in Sources */,
 				BFA36285243E1717002FA200 /* Sys.swift in Sources */,
 				BFA36259243E167C002FA200 /* AppDelegate.swift in Sources */,

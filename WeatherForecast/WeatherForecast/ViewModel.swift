@@ -10,7 +10,8 @@ import Combine
 import Foundation
 
 final class ViewModel: ObservableObject {
-    @Published private(set) var response: String = "No Response"
+    @Published private(set) var forecasts: [Forecast] = []
+    @Published private(set) var cityName: String = "Loading"
     
     private var cancellable: AnyCancellable?
     
@@ -22,7 +23,8 @@ final class ViewModel: ObservableObject {
             .decode(type: Response.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in }) { [self] response in
-                self.response = response.description
+                self.forecasts = response.forecasts ?? []
+                self.cityName = response.city?.name ?? "Error"
         }
     }
 }

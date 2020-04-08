@@ -1,12 +1,14 @@
 //
-//  List.swift
+//  Forecast.swift
 //  WeatherForecast
 //
 //  Created by Alessandro Martin on 08/04/2020.
 //  Copyright © 2020 Alessandro Martin. All rights reserved.
 //
 
-struct List: Codable {
+struct Forecast: Codable, Identifiable {
+    var id: String { dt.map(String.init) ?? "" }
+    
 	let dt: Int?
 	let main: Main?
 	let weather: [Weather]?
