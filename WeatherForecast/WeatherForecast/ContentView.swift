@@ -20,7 +20,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(viewModel.forecasts) { forecast in
-                Text(forecast.dtTxt)
+                ForecastCell(
+                    viewModel: ForecastCellViewModel(
+                        description: forecast.weather[0].description,
+                        iconId: forecast.weather[0].icon
+                    )
+                )
             }
             .onAppear(perform: self.viewModel.setUp)
             .navigationBarTitle(viewModel.cityName)

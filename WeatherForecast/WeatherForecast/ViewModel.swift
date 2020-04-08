@@ -16,7 +16,7 @@ final class ViewModel: ObservableObject {
     private let weatherProvider: AnyPublisher<Response, Never>
     private var cancellable: AnyCancellable?
     
-    init(weatherProvider: AnyPublisher<Response, Never> = Provider.weather(city: "London")) {
+    init(weatherProvider: AnyPublisher<Response, Never> = Provider.weather(city: 2643743)) {
         self.weatherProvider = weatherProvider
     }
     
@@ -26,6 +26,6 @@ final class ViewModel: ObservableObject {
             .sink { [self] response in
                 self.forecasts = response.forecasts
                 self.cityName = response.city.name
-        }
+            }
     }
 }

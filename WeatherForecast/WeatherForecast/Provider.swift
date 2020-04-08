@@ -8,9 +8,10 @@
 
 import Combine
 import Foundation
+import class UIKit.UIImage
 
 enum Provider {
-    static func weather(city: String) -> AnyPublisher<Response, Never> {
+    static func weather(city: Int) -> AnyPublisher<Response, Never> {
         URLSession.shared
             .dataTaskPublisher(for: Provider.url(city: city))
             .map(\.data)
@@ -19,16 +20,61 @@ enum Provider {
             .eraseToAnyPublisher()
     }
     
-    private static func url(city: String) -> URL {
+    static func icon(code: String) -> AnyPublisher<UIImage?, Never> {
+        let url = URL(string: "https://openweathermap.org/img/wn/\(code)@2x.png")!
+        print("--->", url.absoluteString)
+        if let photo = NSCache.getImage(url: url) {
+            return Just(photo).eraseToAnyPublisher()
+        } else {
+            return fetchPhoto(url: url)
+                .flatMap(monadTransformer(cacheImage(for: url))) // Note: here I am performing a side effect which is not ideal but keeps the code simple
+                .receive(on: DispatchQueue.main)
+                .eraseToAnyPublisher()
+        }
+    }
+    
+    private static func url(city: Int) -> URL {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "samples.openweathermap.org"
         components.path = "/data/2.5/forecast"
         components.queryItems = [
-            .init(name: "q", value: city + ",us"),
-            .init(name: "appid", value: "b6907d289e10d714a6e88b30761fae22")
+            .init(name: "id", value: String(city)),
+            .init(name: "appid", value: "df603e62bfe5767442581c346e2e18cc")
         ]
         
         return components.url!
     }
+    
+    private static func fetchPhoto(url: URL) -> AnyPublisher<UIImage?, Never> {
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .map(UIImage.init)
+            .replaceError(with: nil)
+            .eraseToAnyPublisher()
+    }
+    
+    private static func cacheImage(for url: URL) -> (UIImage) -> AnyPublisher<UIImage?, Never> {
+        return { image in
+            NSCache.setImage(image, for: url)
+            
+            return Just(image).eraseToAnyPublisher()
+        }
+    }
+}
+
+private extension NSCache where KeyType == NSString, ObjectType == UIImage {
+    static let imageCache = NSCache<NSString, UIImage>()
+    
+    static func getImage(url: URL) -> UIImage? {
+        imageCache.object(forKey: url.absoluteString as NSString)
+    }
+    
+    static func setImage(_ image: UIImage, for url: URL) {
+        imageCache.setObject(image, forKey: url.absoluteString as NSString)
+    }
+}
+
+func monadTransformer<A,B>(_ f: @escaping (A) -> AnyPublisher<B?, Never>) -> (A?) -> AnyPublisher<B?, Never> {
+    return { $0.map(f) ?? Just(nil).eraseToAnyPublisher() }
 }

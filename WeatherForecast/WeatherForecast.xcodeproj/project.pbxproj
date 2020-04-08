@@ -26,6 +26,8 @@
 		BFA3628E243E1C07002FA200 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3628D243E1C07002FA200 /* ViewModel.swift */; };
 		BFA36291243E239C002FA200 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = BFA36290243E239C002FA200 /* response.json */; };
 		BFA36293243E296B002FA200 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA36292243E296B002FA200 /* Provider.swift */; };
+		BFA9B079243E3149002147C0 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9B078243E3149002147C0 /* ForecastCell.swift */; };
+		BFA9B07B243E35D2002147C0 /* ForecastCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9B07A243E35D2002147C0 /* ForecastCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		BFA3628D243E1C07002FA200 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BFA36290243E239C002FA200 /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		BFA36292243E296B002FA200 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		BFA9B078243E3149002147C0 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		BFA9B07A243E35D2002147C0 /* ForecastCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +111,14 @@
 				BFA36258243E167C002FA200 /* AppDelegate.swift */,
 				BFA3625A243E167C002FA200 /* SceneDelegate.swift */,
 				BFA3625C243E167C002FA200 /* ContentView.swift */,
+				BFA9B07A243E35D2002147C0 /* ForecastCellViewModel.swift */,
 				BFA36292243E296B002FA200 /* Provider.swift */,
 				BFA3628D243E1C07002FA200 /* ViewModel.swift */,
 				BFA3625E243E167D002FA200 /* Assets.xcassets */,
 				BFA36263243E167D002FA200 /* LaunchScreen.storyboard */,
 				BFA36266243E167D002FA200 /* Info.plist */,
 				BFA36260243E167D002FA200 /* Preview Content */,
+				BFA9B078243E3149002147C0 /* ForecastCell.swift */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -270,7 +276,9 @@
 				BFA3628B243E1717002FA200 /* Wind.swift in Sources */,
 				BFA3628E243E1C07002FA200 /* ViewModel.swift in Sources */,
 				BFA3628A243E1717002FA200 /* Weather.swift in Sources */,
+				BFA9B07B243E35D2002147C0 /* ForecastCellViewModel.swift in Sources */,
 				BFA36284243E1717002FA200 /* Coord.swift in Sources */,
+				BFA9B079243E3149002147C0 /* ForecastCell.swift in Sources */,
 				BFA3625B243E167C002FA200 /* SceneDelegate.swift in Sources */,
 				BFA36289243E1717002FA200 /* Clouds.swift in Sources */,
 				BFA36287243E1717002FA200 /* Response.swift in Sources */,
