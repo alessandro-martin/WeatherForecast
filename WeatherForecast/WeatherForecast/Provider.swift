@@ -22,7 +22,6 @@ enum Provider {
     
     static func icon(code: String) -> AnyPublisher<UIImage?, Never> {
         let url = URL(string: "https://openweathermap.org/img/wn/\(code)@2x.png")!
-        print("--->", url.absoluteString)
         if let photo = NSCache.getImage(url: url) {
             return Just(photo).eraseToAnyPublisher()
         } else {

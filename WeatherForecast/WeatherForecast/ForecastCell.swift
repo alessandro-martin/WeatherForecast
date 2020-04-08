@@ -19,6 +19,9 @@ struct ForecastCell: View {
     var body: some View {
         HStack {
             Image(uiImage: viewModel.image)
+                .resizable()
+                .frame(width: 90.0, height: 90.0)
+                .aspectRatio(contentMode: .fit)
             Text(viewModel.description)
         }.onAppear(perform: self.viewModel.fetchImage)
     }
