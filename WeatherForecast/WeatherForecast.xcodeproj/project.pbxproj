@@ -24,6 +24,7 @@
 		BFA3628B243E1717002FA200 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA36282243E1717002FA200 /* Wind.swift */; };
 		BFA3628C243E1717002FA200 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA36283243E1717002FA200 /* City.swift */; };
 		BFA3628E243E1C07002FA200 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3628D243E1C07002FA200 /* ViewModel.swift */; };
+		BFA36291243E239C002FA200 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = BFA36290243E239C002FA200 /* response.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		BFA36282243E1717002FA200 /* Wind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		BFA36283243E1717002FA200 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		BFA3628D243E1C07002FA200 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BFA36290243E239C002FA200 /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		BFA3626E243E167D002FA200 /* WeatherForecastTests */ = {
 			isa = PBXGroup;
 			children = (
+				BFA3628F243E2383002FA200 /* Fixtures */,
 				BFA3626F243E167D002FA200 /* WeatherForecastTests.swift */,
 				BFA36271243E167D002FA200 /* Info.plist */,
 			);
@@ -143,6 +146,14 @@
 				BFA36282243E1717002FA200 /* Wind.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BFA3628F243E2383002FA200 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				BFA36290243E239C002FA200 /* response.json */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA36291243E239C002FA200 /* response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,26 +9,21 @@
 import XCTest
 @testable import WeatherForecast
 
-class WeatherForecastTests: XCTestCase {
-
+final class WeatherForecastTests: XCTestCase {
+    private var fixture: Data!
+   
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        
+        
+        fixture = Bundle(for: WeatherForecastTests.self)
+            .url(forResource: "response", withExtension: "json")
+            .map { try! Data(contentsOf: $0) }
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testResponseIsDecodedCorrectly() throws {
+        let sut = try JSONDecoder().decode(Response.self, from: fixture)
+        
+        XCTAssertEqual(sut.forecasts?.count, 36)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
