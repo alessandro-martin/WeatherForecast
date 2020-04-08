@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(viewModel.forecasts) { forecast in
-                Text(forecast.dt_txt ?? "")
+                Text(forecast.dtTxt)
             }
             .onAppear(perform: self.viewModel.setUp)
             .navigationBarTitle(viewModel.cityName)

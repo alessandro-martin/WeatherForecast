@@ -23,8 +23,8 @@ final class ViewModel: ObservableObject {
             .decode(type: Response.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in }) { [self] response in
-                self.forecasts = response.forecasts ?? []
-                self.cityName = response.city?.name ?? "Error"
+                self.forecasts = response.forecasts
+                self.cityName = response.city.name
         }
     }
 }

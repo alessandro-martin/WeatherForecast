@@ -24,16 +24,17 @@ final class WeatherForecastTests: XCTestCase {
     func testResponseIsDecodedCorrectly() throws {
         let sut = try JSONDecoder().decode(Response.self, from: fixture)
         
-        XCTAssertEqual(sut.forecasts?.count, 36)
+        XCTAssertEqual(sut.forecasts.count, 36)
+        XCTAssertEqual(sut.city.name, "Altstadt")
     }
     
     func testSingleForecastIsWellFormed() throws {
-        let sut = try JSONDecoder().decode(Response.self, from: fixture).forecasts![0]
+        let sut = try JSONDecoder().decode(Response.self, from: fixture).forecasts[0]
         
         XCTAssertEqual(sut.dt, 1487246400)
-        XCTAssertEqual(sut.weather?.first?.main, "Clear")
-        XCTAssertEqual(sut.weather?.first?.description, "clear sky")
-        XCTAssertEqual(sut.main?.temp_min, 281.556)
-        XCTAssertEqual(sut.main?.temp_max, 286.67)
+        XCTAssertEqual(sut.weather.first?.main, "Clear")
+        XCTAssertEqual(sut.weather.first?.description, "clear sky")
+        XCTAssertEqual(sut.main.tempMin, 281.556)
+        XCTAssertEqual(sut.main.tempMax, 286.67)
     }
 }

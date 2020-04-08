@@ -7,28 +7,17 @@
 //
 
 struct Response: Codable {
-	let cod: String?
-	let message: Double?
-	let cnt: Int?
-	let forecasts: [Forecast]?
-	let city: City?
+	let cod: String
+	let message: Double
+	let cnt: Int
+	let forecasts: [Forecast]
+	let city: City
 
 	enum CodingKeys: String, CodingKey {
-
-		case cod = "cod"
-		case message = "message"
-		case cnt = "cnt"
+		case cod
+		case message
+		case cnt
 		case forecasts = "list"
-		case city = "city"
+		case city
 	}
-
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		cod = try values.decodeIfPresent(String.self, forKey: .cod)
-		message = try values.decodeIfPresent(Double.self, forKey: .message)
-		cnt = try values.decodeIfPresent(Int.self, forKey: .cnt)
-		forecasts = try values.decodeIfPresent([Forecast].self, forKey: .forecasts)
-		city = try values.decodeIfPresent(City.self, forKey: .city)
-	}
-
 }
