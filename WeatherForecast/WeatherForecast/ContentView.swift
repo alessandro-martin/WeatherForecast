@@ -6,11 +6,22 @@
 //  Copyright © 2020 Alessandro Martin. All rights reserved.
 //
 
+import Combine
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var viewModel: ViewModel
+    private var cancellable: AnyCancellable?
+    
+    init(viewModel: ViewModel = ViewModel()) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
-        Text("Hello, World!")
+        Text(viewModel.response)
+            .onAppear {
+                self.viewModel.setUp()
+        }
     }
 }
 
