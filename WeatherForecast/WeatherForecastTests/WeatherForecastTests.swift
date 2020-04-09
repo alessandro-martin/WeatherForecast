@@ -6,6 +6,7 @@
 //  Copyright © 2020 Alessandro Martin. All rights reserved.
 //
 
+import Combine
 import XCTest
 @testable import WeatherForecast
 
@@ -36,5 +37,22 @@ final class WeatherForecastTests: XCTestCase {
         XCTAssertEqual(sut.weather.first?.description, "clear sky")
         XCTAssertEqual(sut.main.tempMin, 281.556)
         XCTAssertEqual(sut.main.tempMax, 286.67)
+    }
+    
+    func testViewModelFetchesData() throws {
+        let data = try JSONDecoder().decode(Response.self, from: fixture)
+        let sut = ViewModel(weatherProvider: Just(data).eraseToAnyPublisher())
+        sut.setUp()
+        
+        XCTAssertEqual(sut.cityName, "Loading")
+        XCTAssertEqual(sut.forecasts.count, 0)
+        
+        let expectation = self.expectation(description: "City name and forecasts count should be Altstadt and 36")
+        DispatchQueue.main.async(execute: expectation.fulfill)
+        
+        waitForExpectations(timeout: 0.1) { _ in
+            XCTAssertEqual(sut.cityName, "Altstadt")
+            XCTAssertEqual(sut.forecasts.count, 36)
+        }
     }
 }
