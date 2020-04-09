@@ -55,4 +55,13 @@ final class WeatherForecastTests: XCTestCase {
             XCTAssertEqual(sut.forecasts.count, 36)
         }
     }
+    
+    func testForecastCellViewModelFormatsDataCorrectly() throws {
+        let forecast = try JSONDecoder().decode(Response.self, from: fixture).forecasts[0]
+        let sut = ForecastCellViewModel(info: ForecastInfo(forecast: forecast))
+        
+        XCTAssertEqual(sut.date, "Date: 2/16/17")
+        XCTAssertEqual(sut.description, "clear sky")
+        XCTAssertEqual(sut.temperatures, "T Min: 8.4 - T Max: 13.5")
+    }
 }
