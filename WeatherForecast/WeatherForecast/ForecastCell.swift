@@ -25,7 +25,6 @@ struct ForecastCell: View {
             VStack(alignment: .leading, spacing: 4.0) {
                 Text(viewModel.description)
                     .fontWeight(.bold)
-                Spacer(minLength: 4.0)
                 Text(viewModel.temperatures)
                 Text(viewModel.date)
             }
@@ -40,8 +39,8 @@ struct ForecastCell_Previews: PreviewProvider {
                 info: ForecastInfo(
                     iconId: "01D",
                     description: "clear sky",
-                    tempMin: 291.11,
-                    tempMax: 299.23,
+                    tempMin: Measurement(value: 18.0, unit: .celsius),
+                    tempMax: Measurement(value: 23.0, unit: .celsius),
                     date: Date(timeIntervalSince1970: 1487246400)
                 )
             )
