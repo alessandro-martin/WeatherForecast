@@ -86,6 +86,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF3D4529243F849A003BDDB2 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				BFA36258243E167C002FA200 /* AppDelegate.swift */,
+				BFA3625A243E167C002FA200 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		BF3D452A243F84A7003BDDB2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFA3625C243E167C002FA200 /* ContentView.swift */,
+				BFA9B078243E3149002147C0 /* ForecastCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF3D452B243F84B6003BDDB2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9B07A243E35D2002147C0 /* ForecastCellViewModel.swift */,
+				BFA3628D243E1C07002FA200 /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BF3D452C243F84CE003BDDB2 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				BFA36292243E296B002FA200 /* Provider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 		BFA3624C243E167C002FA200 = {
 			isa = PBXGroup;
 			children = (
@@ -107,18 +142,15 @@
 		BFA36257243E167C002FA200 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
-				BFA3627A243E16FF002FA200 /* Model */,
-				BFA36258243E167C002FA200 /* AppDelegate.swift */,
-				BFA3625A243E167C002FA200 /* SceneDelegate.swift */,
-				BFA3625C243E167C002FA200 /* ContentView.swift */,
-				BFA9B07A243E35D2002147C0 /* ForecastCellViewModel.swift */,
-				BFA36292243E296B002FA200 /* Provider.swift */,
-				BFA3628D243E1C07002FA200 /* ViewModel.swift */,
+				BFA3627A243E16FF002FA200 /* Models */,
+				BF3D452C243F84CE003BDDB2 /* Provider */,
+				BF3D4529243F849A003BDDB2 /* System */,
+				BF3D452B243F84B6003BDDB2 /* ViewModels */,
+				BF3D452A243F84A7003BDDB2 /* Views */,
 				BFA3625E243E167D002FA200 /* Assets.xcassets */,
 				BFA36263243E167D002FA200 /* LaunchScreen.storyboard */,
 				BFA36266243E167D002FA200 /* Info.plist */,
 				BFA36260243E167D002FA200 /* Preview Content */,
-				BFA9B078243E3149002147C0 /* ForecastCell.swift */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -141,7 +173,7 @@
 			path = WeatherForecastTests;
 			sourceTree = "<group>";
 		};
-		BFA3627A243E16FF002FA200 /* Model */ = {
+		BFA3627A243E16FF002FA200 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				BFA36283243E1717002FA200 /* City.swift */,
@@ -154,7 +186,7 @@
 				BFA36281243E1717002FA200 /* Weather.swift */,
 				BFA36282243E1717002FA200 /* Wind.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BFA3628F243E2383002FA200 /* Fixtures */ = {
