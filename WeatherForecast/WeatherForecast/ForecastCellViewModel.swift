@@ -24,7 +24,7 @@ final class ForecastCellViewModel: ObservableObject {
     }
     
     func fetchImage() {
-        cancellable = Provider.icon(code: iconId)
+        cancellable = Provider.icon(iconId: iconId)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] image in
                 guard let self = self else { return }

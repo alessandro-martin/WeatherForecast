@@ -13,15 +13,15 @@ import class UIKit.UIImage
 enum Provider {
     static func weather(city: Int) -> AnyPublisher<Response, Never> {
         URLSession.shared
-            .dataTaskPublisher(for: Provider.url(city: city))
+            .dataTaskPublisher(for: Self.url(city: city))
             .map(\.data)
             .decode(type: Response.self, decoder: JSONDecoder())
             .replaceError(with: .empty)
             .eraseToAnyPublisher()
     }
     
-    static func icon(code: String) -> AnyPublisher<UIImage?, Never> {
-        let url = URL(string: "https://openweathermap.org/img/wn/\(code)@2x.png")!
+    static func icon(iconId: String) -> AnyPublisher<UIImage?, Never> {
+        let url = Self.url(iconId: iconId)
         if let photo = NSCache.getImage(url: url) {
             return Just(photo).eraseToAnyPublisher()
         } else {
@@ -41,6 +41,15 @@ enum Provider {
             .init(name: "id", value: String(city)),
             .init(name: "appid", value: "df603e62bfe5767442581c346e2e18cc")
         ]
+        
+        return components.url!
+    }
+    
+    private static func url(iconId: String) -> URL {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "openweathermap.org"
+        components.path = "/img/wn/\(iconId)@2x.png"
         
         return components.url!
     }
