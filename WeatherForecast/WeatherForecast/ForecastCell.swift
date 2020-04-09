@@ -22,13 +22,29 @@ struct ForecastCell: View {
                 .resizable()
                 .frame(width: 90.0, height: 90.0)
                 .aspectRatio(contentMode: .fit)
-            Text(viewModel.description)
+            VStack(alignment: .leading, spacing: 4.0) {
+                Text(viewModel.description)
+                    .fontWeight(.bold)
+                Spacer(minLength: 4.0)
+                Text(viewModel.temperatures)
+                Text(viewModel.date)
+            }
         }.onAppear(perform: self.viewModel.fetchImage)
     }
 }
 
 struct ForecastCell_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastCell(viewModel: ForecastCellViewModel(description: "Placeholder", iconId: "01D"))
+        ForecastCell(
+            viewModel: ForecastCellViewModel(
+                info: ForecastInfo(
+                    iconId: "01D",
+                    description: "clear sky",
+                    tempMin: 291.11,
+                    tempMax: 299.23,
+                    date: Date(timeIntervalSince1970: 1487246400)
+                )
+            )
+        )
     }
 }

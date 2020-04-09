@@ -22,8 +22,7 @@ struct ContentView: View {
             List(viewModel.forecasts) { forecast in
                 ForecastCell(
                     viewModel: ForecastCellViewModel(
-                        description: forecast.weather[0].description,
-                        iconId: forecast.weather[0].icon
+                        info: .init(forecast: forecast)
                     )
                 )
             }
