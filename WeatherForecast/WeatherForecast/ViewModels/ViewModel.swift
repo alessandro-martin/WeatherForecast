@@ -23,7 +23,9 @@ final class ViewModel: ObservableObject {
     func setUp() {
         cancellable = weatherProvider
             .receive(on: DispatchQueue.main)
-            .sink { [self] response in
+            .sink { [weak self] response in
+                guard let self = self else { return }
+                
                 self.forecasts = response.forecasts
                 self.cityName = response.city.name
             }
